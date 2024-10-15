@@ -1,2 +1,2 @@
-# robot-framework
-Robot Framework studies
+# Estudos de Robot Framework
+Este repositório contém exemplos práticos e estudos relacionados à automação de testes utilizando o Robot Framework. O foco dos estudos é a aplicação do framework em diferentes contextos, como testes de APIs, automação web e manipulação de dados, além do uso de bibliotecas populares integradas ao Robot Framework.
