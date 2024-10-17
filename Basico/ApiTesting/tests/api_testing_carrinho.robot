@@ -8,8 +8,16 @@ Resource    ../resources/api_testing_produtos.resource
 Test Case 01: Successfully register a new cart
     Get authorization token
     Create a new product name
-    Register a new product in ServeRest    expected_status_code=201  token=${AUTH_TOKEN}
-    Add product to cart  product_id=${ID_PRODUCT}  amount=1  expected_status_code=201  token=${AUTH_TOKEN}
+    Register a new product in ServeRest    
+    ...  expected_status_code=201
+    ...  token=${AUTH_TOKEN}
+
+    Add product to cart  
+    ...  product_id=${ID_PRODUCT}  
+    ...  amount=1  
+    ...  expected_status_code=201
+    ...  token=${AUTH_TOKEN}
+
     Check that the cart has been created
 
 

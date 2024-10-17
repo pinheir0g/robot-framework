@@ -3,9 +3,6 @@ Library  RequestsLibrary
 Resource    api_testing_usuarios.resource
 
 
-*** Variables ***
-
-
 *** Keywords ***
 
 Get authorization token
@@ -32,7 +29,7 @@ Create a new product name
 Register a new product in ServeRest
     [Arguments]  ${expected_status_code}  ${token}=${None}
 
-    ${body}  Create Dictionary  nome=${product_name}  preco=10000  descricao=Celular  quantidade=10
+    ${body}  Create Dictionary  nome=${product_name}  preco=10000  descricao=Celular  quantidade=20
     ${HEADER_TOKEN}  Create Dictionary  Authorization=${token}
     ${RESPONSE}  POST On Session  alias=ServeRest  url=/produtos  headers=${HEADER_TOKEN}  json=${body}   expected_status=${expected_status_code}
     Set Test Variable  ${RESP_POST}  ${RESPONSE.json()}
@@ -61,12 +58,10 @@ Consult the new product data
 
  Check the data returned
     Log  ${RESP_GET_PRODUTC}
-    ${price}  Convert To Integer    item=10000
-    ${quantidade}  Convert To Integer  item=20
     Dictionary Should Contain Item    dictionary=${RESP_GET_PRODUTC}    key=nome    value=${product_name}
-    Dictionary Should Contain Item    dictionary=${RESP_GET_PRODUTC}    key=preco    value=${price}
+    Dictionary Should Contain Item    dictionary=${RESP_GET_PRODUTC}    key=preco    value=${10000}
     Dictionary Should Contain Item    dictionary=${RESP_GET_PRODUTC}    key=descricao   value=Celular
-    Dictionary Should Contain Item    dictionary=${RESP_GET_PRODUTC}    key=quantidade    value=${quantidade}
+    Dictionary Should Contain Item    dictionary=${RESP_GET_PRODUTC}    key=quantidade    value=${20}
     Dictionary Should Contain Item    dictionary=${RESP_GET_PRODUTC}    key=_id    value=${ID_PRODUCT}
 
 

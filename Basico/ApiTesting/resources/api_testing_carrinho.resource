@@ -12,12 +12,14 @@ Add product to cart
     ${PRODUCTS}  Create List  ${product}
     ${BODY}  Create Dictionary  produtos=${PRODUCTS}
     Log  ${PRODUCTS}
+
     ${RESPONSE}  POST On Session  
     ...  alias=ServeRest  
     ...  url=/carrinhos  
     ...  headers=${HEADER_TOKEN}  
     ...  json=${BODY}  
     ...  expected_status=${expected_status_code}
+
     Set Test Variable  ${RESP_POST}  ${RESPONSE.json()}
     IF    ${RESPONSE.status_code} == 201
         Set Test Variable  ${ID_CART}  ${RESPONSE.json()["_id"]}

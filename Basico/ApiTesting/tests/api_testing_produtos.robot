@@ -2,8 +2,6 @@
 Documentation  Tests for products endpoints in ServeRest
 Resource  ../resources/api_testing_produtos.resource
 Test Setup  Criar Sessao na ServeRest
-*** Variables ***
-
 
 *** Test Cases ***
 

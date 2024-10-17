@@ -1,10 +1,6 @@
 *** Settings ***
 Resource  ../resources/api_testing_usuarios.resource
 
-
-*** Variables ***
-
-
 *** Test Cases ***
 Cenario 01: Cadastrar um novo usuário com sucesso na ServeRest
     Criar um usuario novo
